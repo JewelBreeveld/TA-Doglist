@@ -7,8 +7,14 @@ export default class Dogslist extends Component {
   componentDidMount() {
     request
       .get("https://dog.ceo/api/breeds/list/all")
-      .then(response => console.log(Object.keys(response.body.message)))
+      .then(response => this.updateBreeds(Object.keys(response.body.message)))
       .catch(console.error);
+  }
+
+  updateBreeds(breeds) {
+    this.setState({
+      dogBreeds: breeds
+    });
   }
 
   render() {
