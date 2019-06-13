@@ -22,7 +22,15 @@ export default class Dogslist extends Component {
       <div className="dogs-list">
         <h1>Dogs List</h1>
 
-        {this.state.dogBreeds === null && "Loading ..."}
+        {this.state.dogBreeds === null ? (
+          "Loading ..."
+        ) : (
+          <ul>
+            {this.state.dogBreeds.map(breed => (
+              <li key={breed}>{breed}</li>
+            ))}
+          </ul>
+        )}
       </div>
     );
   }
