@@ -7,7 +7,7 @@ export default class Dogslist extends Component {
   componentDidMount() {
     request
       .get("https://dog.ceo/api/breeds/list/all")
-      .then(console.log)
+      .then(response => console.log(Object.keys(response.body.message)))
       .catch(console.error);
   }
 
