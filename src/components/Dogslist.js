@@ -1,7 +1,16 @@
 import React, { Component } from "react";
+import * as request from "superagent";
 
 export default class Dogslist extends Component {
   state = { dogBreeds: null };
+
+  componentDidMount() {
+    request
+      .get("https://dog.ceo/api/breeds/list/all")
+      .then(console.log)
+      .catch(console.error);
+  }
+
   render() {
     return (
       <div className="dogs-list">
